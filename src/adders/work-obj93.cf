@@ -1,0 +1,11 @@
+v 4
+file . "n_bitadder_testbench.vhd" "94dd8abf3a7b74bc77eaf27e3f19f3a78e1dc380" "20211202190344.144":
+  entity n_bitadder_testbench at 3( 80) + 0 on 23;
+  architecture testbench of n_bitadder_testbench at 11( 234) + 0 on 24;
+file . "n_bitadder.vhd" "2d909b1577926e702074f585545bc81db0b08f12" "20211202190344.121":
+  package n_bitadder_package at 1( 0) + 0 on 18;
+  entity n_bitadder at 7( 150) + 0 on 19;
+  architecture behaviour of n_bitadder at 18( 463) + 0 on 20;
+file / "/home/ptambe/vhdl/vhdl_open_cores/src/adders/fulladder.vhd" "498c0b3ad1eb66a3bd3ed8dd9e7dc5b58746956f" "20211202190344.122":
+  entity fulladder at 1( 0) + 0 on 21;
+  architecture behaviour of fulladder at 8( 180) + 0 on 22;

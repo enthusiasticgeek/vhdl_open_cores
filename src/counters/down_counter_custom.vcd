@@ -1,0 +1,74 @@
+$date
+  Sun Nov 28 16:28:12 2021
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module std_logic_arith $end
+$upscope $end
+$scope module std_logic_signed $end
+$upscope $end
+$scope module down_counter_custom_testbench $end
+$var reg 1 ! clk $end
+$var reg 1 " n_rst $end
+$var reg 1 # cnt_stop $end
+$var reg 1 $ load_enable $end
+$var reg 64 % load_data[63:0] $end
+$var reg 64 & cout[63:0] $end
+$var reg 1 ' underflow $end
+$scope module dut $end
+$var reg 1 ( clk $end
+$var reg 1 ) n_rst $end
+$var reg 1 * cnt_stop $end
+$var reg 1 + load_enable $end
+$var reg 64 , load_data[63:0] $end
+$var reg 64 - cout[63:0] $end
+$var reg 1 . underflow $end
+$var reg 64 / cnt_down[63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+b0000000000000000000000000000000011111111111111111111111111111111 %
+b1111111111111111111111111111111111111111111111111111111111111111 &
+U'
+0(
+0)
+0*
+0+
+b0000000000000000000000000000000011111111111111111111111111111111 ,
+b1111111111111111111111111111111111111111111111111111111111111111 -
+U.
+b1111111111111111111111111111111111111111111111111111111111111111 /
+#5000000
+1!
+1(
+#10000000
+0!
+1"
+1$
+0(
+1)
+1+
+#15000000
+1!
+b0000000000000000000000000000000011111111111111111111111111111111 &
+1(
+b0000000000000000000000000000000011111111111111111111111111111111 -
+b0000000000000000000000000000000011111111111111111111111111111111 /
+#20000000
+0!
+0$
+0(
+0+
