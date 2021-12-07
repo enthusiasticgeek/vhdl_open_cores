@@ -1,4 +1,4 @@
--- n bit ripple carry Adder Testbench
+-- half adder testbench
 --https://github.com/enthusiasticgeek/vhdl_open_cores
 library ieee;
 use ieee.std_logic_1164.all;

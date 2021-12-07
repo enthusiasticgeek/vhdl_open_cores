@@ -1,3 +1,5 @@
+
+--  full Adder
 library  ieee;
 use  ieee.std_logic_1164.all;
 -- definition of a full adder
