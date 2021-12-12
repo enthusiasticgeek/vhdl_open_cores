@@ -13,6 +13,8 @@ use Work.signed_n_bitadder_package.all;
 entity signed_n_bitadder is
      port (a, b: in std_logic_vector(BUS_WIDTH-1 downto 0);
            c_in : in std_logic;
+	  clk:    in  std_logic;
+	  n_rst:  in  std_logic;
                 sum: out std_logic_vector (BUS_WIDTH-1 downto 0);
                 z, n: out std_logic;
                 c_out, v: out std_logic);
@@ -35,8 +37,15 @@ for I in 0 to BUS_WIDTH-1 generate
            FULL_ADDER0: FULLADDER
                 port map (a(I), b(I), c(I), sum_temp(I), c(I+1));
 end generate;
-           process(c,sum_temp)
+           process(clk,n_rst,c,sum_temp)
            begin
+           if n_rst = '0' then
+             v <='0';
+             n <= '0';
+             z <= '0';
+             c_out <= '0';
+             sum <= (others => '0');
+           elsif rising_edge(clk) then
              v <= c(BUS_WIDTH-1) xor c(BUS_WIDTH);
              c_out <= c(BUS_WIDTH);
              sum <= sum_temp;
@@ -46,5 +55,6 @@ end generate;
              else
                 z <= '0';
              end if;
+           end if;
            end process;
 end architecture;
