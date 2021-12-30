@@ -11,7 +11,7 @@ package brent_kung_adder_package  is
   --type my_std_logic is array (natural range <>) of std_logic_vector;
 end package;
 
--- 32-bit adder
+-- 8-bit adder
 library  ieee;
 use ieee.numeric_std.all;
 use  ieee.std_logic_1164.all;
