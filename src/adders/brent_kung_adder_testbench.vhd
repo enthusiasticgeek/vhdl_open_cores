@@ -1,5 +1,5 @@
--- n bit ripple carry Adder Testbench
---https://github.com/enthusiasticgeek/vhdl_opecarry_lookahead_n_cores
+-- n bit brent kung Adder Testbench
+--https://github.com/enthusiasticgeek/
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
