@@ -37,18 +37,18 @@ end component;
 begin
 
            c0(0)<='0';
-full_adder0:
+full_adder0_0:
 for I in 0 to BUS_WiDTH-1 generate
            FULL_ADDER0: FULLADDER
                 port map (a(I), b(I), c0(I), s0(I), c0(I+1));
 end generate;
            c1(0)<='1';
-full_adder1:
+full_adder1_0:
 for I in 0 to BUS_WiDTH-1 generate
            FULL_ADDER0: FULLADDER
                 port map (a(I), b(I), c1(I), s1(I), c1(I+1));
 end generate;
-sum_mux:
+sum_mux_0:
 for I in 0 to BUS_WiDTH-1 generate
            SUM_MUX: mux_2_to_1
                 port map (s0(I), s1(I), c_in, sum(I));
