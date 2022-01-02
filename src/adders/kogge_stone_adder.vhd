@@ -105,7 +105,7 @@ for I in 0 to BUS_WIDTH-1 generate -- 0 to 7
     end generate OPERATE;
 end generate;
 kogge_stone6:
-for I in 0 to (2**2)-1 generate -- 0 to 2^1-1
+for I in 0 to (2**2)-1 generate -- 0 to 2^2-1
                 g_sig(3,I) <= g_sig(2,I);
                 p_sig(3,I) <= p_sig(2,I);
 end generate;
