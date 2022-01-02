@@ -7,7 +7,7 @@ use ieee.math_real.all;
 package kogge_stone_adder_package  is
   constant BUS_WIDTH : integer := 8;
   --type input is array (0 to 8,0 to BUS_WIDTH-1) of std_logic_vector;
-  type input is array (0 to integer(ceil(log2(real(8))))+integer(2), BUS_WIDTH-1 downto 0) of std_logic;
+  type input is array (0 to integer(ceil(log2(real(BUS_WIDTH))))+integer(2), BUS_WIDTH-1 downto 0) of std_logic;
   --type my_std_logic is array (natural range <>) of std_logic_vector;
 end package;
 
