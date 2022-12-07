@@ -41,68 +41,107 @@ begin
 
           -- row 1
 
-        first_row:
-        for I in 0 to BUS_WIDTH-2 generate -- I = 3
-          y_fa(0,I) <= a(I+1) and x(0); 
-          x_fa(0,I) <= a(I) and x(1); 
+          y_fa(0,0) <= a(1) and x(0); 
+          x_fa(0,0) <= a(0) and x(1); 
 		   FULL_ADDER0_0: FULLADDER
-			port map (x_fa(0,I), y_fa(0,I), '0', sum_sig(0,I), cout_sig(0,I));
-
-        end generate;
+			port map (x_fa(0,0), y_fa(0,0), '0', sum_sig(0,0), cout_sig(0,0));
+          y_fa(0,1) <= a(2) and x(0); 
+          x_fa(0,1) <= a(1) and x(1); 
+		   FULL_ADDER0_1: FULLADDER
+			port map (x_fa(0,1), y_fa(0,1), '0', sum_sig(0,1), cout_sig(0,1));
+          y_fa(0,2) <= a(3) and x(0); 
+          x_fa(0,2) <= a(2) and x(1); 
+		   FULL_ADDER0_2: FULLADDER
+			port map (x_fa(0,2), y_fa(0,2), '0', sum_sig(0,2), cout_sig(0,2));
+          y_fa(0,3) <= a(4) and x(0); 
+          x_fa(0,3) <= a(3) and x(1); 
+		   FULL_ADDER0_3: FULLADDER
+			port map (x_fa(0,3), y_fa(0,3), '0', sum_sig(0,3), cout_sig(0,3));
           p_sig(1) <= sum_sig(0,0);
 
-         -- middle rows
+          -- row 2
 
-second_to_middle_row_k:
-for K in 1 to BUS_WIDTH-2 generate -- K = [1,3]
-        second_to_middle_row:
-        for I in 0 to BUS_WIDTH-2 generate -- I = [0,3]
-	  connect_to_middle_sum: if I < BUS_WIDTH-2 generate 
-                   y_fa(K,I) <= sum_sig(K,I+1); 
-          end generate connect_to_middle_sum;
-	  connect_to_middle_product : if I = BUS_WIDTH-2 generate
-                   y_fa(K,I) <= a(I+1) and x(I); 
-          end generate connect_to_middle_product;
+          y_fa(1,0) <= sum_sig(0,1);
+          x_fa(1,0) <= a(0) and x(2); 
+		   FULL_ADDER1_0: FULLADDER
+			port map (x_fa(1,0), y_fa(1,0), cout_sig(0,0), sum_sig(1,0), cout_sig(1,0));
+          y_fa(1,1) <= sum_sig(0,2); 
+          x_fa(1,1) <= a(1) and x(2); 
+		   FULL_ADDER1_1: FULLADDER
+			port map (x_fa(1,1), y_fa(1,1), cout_sig(0,1), sum_sig(1,1), cout_sig(1,1));
+          y_fa(1,2) <= sum_sig(0,3); 
+          x_fa(1,2) <= a(2) and x(2); 
+		   FULL_ADDER1_2: FULLADDER
+			port map (x_fa(1,2), y_fa(1,2), cout_sig(0,2), sum_sig(1,2), cout_sig(1,2));
+          y_fa(1,3) <= a(4) and x(1); 
+          x_fa(1,3) <= a(3) and x(2); 
+		   FULL_ADDER1_3: FULLADDER
+			port map (x_fa(1,3), y_fa(1,3), cout_sig(0,3), sum_sig(1,3), cout_sig(1,3));
+          p_sig(2) <= sum_sig(1,0);
 
-          x_fa(K,I) <= a(I) and x(K+1); 
-		   FULL_ADDER_to_middle_0: FULLADDER
-			port map (x_fa(K,I), y_fa(K,I), cout_sig(K-1,I), sum_sig(K,I), cout_sig(K,I));
+          -- row 3
 
-        end generate second_to_middle_row;
-          p_sig(K+1) <= sum_sig(K,0);
-end generate second_to_middle_row_k;
+          y_fa(2,0) <= sum_sig(1,1);
+          x_fa(2,0) <= a(0) and x(3); 
+		   FULL_ADDER2_0: FULLADDER
+			port map (x_fa(2,0), y_fa(2,0), cout_sig(1,0), sum_sig(2,0), cout_sig(2,0));
+          y_fa(2,1) <= sum_sig(1,2); 
+          x_fa(2,1) <= a(1) and x(3); 
+		   FULL_ADDER2_1: FULLADDER
+			port map (x_fa(2,1), y_fa(2,1), cout_sig(1,1), sum_sig(2,1), cout_sig(2,1));
+          y_fa(2,2) <= sum_sig(1,3); 
+          x_fa(2,2) <= a(2) and x(3); 
+		   FULL_ADDER2_2: FULLADDER
+			port map (x_fa(2,2), y_fa(2,2), cout_sig(1,2), sum_sig(2,2), cout_sig(2,2));
+          y_fa(2,3) <= a(4) and x(2); 
+          x_fa(2,3) <= a(3) and x(3); 
+		   FULL_ADDER2_3: FULLADDER
+			port map (x_fa(2,3), y_fa(2,3), cout_sig(1,3), sum_sig(2,3), cout_sig(2,3));
+          p_sig(3) <= sum_sig(2,0);
 
+          -- row 4
 
-        -- last row
+          y_fa(3,0) <= sum_sig(2,1);
+          x_fa(3,0) <= a(0) and x(4); 
+		   FULL_ADDER3_0: FULLADDER
+			port map (x_fa(3,0), y_fa(3,0), cout_sig(2,0), sum_sig(3,0), cout_sig(3,0));
+          y_fa(3,1) <= sum_sig(1,2); 
+          x_fa(3,1) <= a(1) and x(4); 
+		   FULL_ADDER3_1: FULLADDER
+			port map (x_fa(3,1), y_fa(3,1), cout_sig(2,1), sum_sig(3,1), cout_sig(3,1));
+          y_fa(3,2) <= sum_sig(1,3); 
+          x_fa(3,2) <= a(2) and x(4); 
+		   FULL_ADDER3_2: FULLADDER
+			port map (x_fa(3,2), y_fa(3,2), cout_sig(2,2), sum_sig(3,2), cout_sig(3,2));
+          y_fa(3,3) <= a(4) and x(3); 
+          x_fa(3,3) <= a(3) and x(4); 
+		   FULL_ADDER3_3: FULLADDER
+			port map (x_fa(3,3), y_fa(3,3), cout_sig(2,3), sum_sig(3,3), cout_sig(3,3));
+          p_sig(4) <= sum_sig(3,0);
 
-        last_row:
-        for I in 0 to BUS_WIDTH-2 generate -- I = 3
-          first_sum_N: if I=0 generate
-                   y_fa(BUS_WIDTH-1,I) <= sum_sig(BUS_WIDTH-2,I+1); 
-                   x_fa(BUS_WIDTH-1,I) <= '0';
-          end generate first_sum_N;
-	  connect_sum_N: if I > 0 and I < BUS_WIDTH-2 generate 
-                   y_fa(BUS_WIDTH-1,I) <= sum_sig(BUS_WIDTH-2,I+1); 
-                   x_fa(BUS_WIDTH-1,I) <= cout_sig(BUS_WIDTH-1,I-1); 
-          end generate connect_sum_N;
-	  connect_product_N : if I = BUS_WIDTH-2 generate
-                   y_fa(BUS_WIDTH-1,I) <= a(I+1) and x(I+1); 
-                   x_fa(BUS_WIDTH-1,I) <= cout_sig(BUS_WIDTH-1,I-1); 
-          end generate connect_product_N;
-		   FULL_ADDER_N_0: FULLADDER
-			port map (x_fa(BUS_WIDTH-1,I), y_fa(BUS_WIDTH-1,I), cout_sig(BUS_WIDTH-2,I), sum_sig(BUS_WIDTH-1,I), cout_sig(BUS_WIDTH-1,I));
+          -- last row
+          y_fa(4,0) <= sum_sig(3,1);
+          x_fa(4,0) <= '0';
+		   FULL_ADDER4_0: FULLADDER
+			port map (x_fa(4,0), y_fa(4,0), cout_sig(3,0), sum_sig(4,0), cout_sig(4,0));
+          y_fa(4,1) <= sum_sig(3,2);
+          x_fa(4,1) <= cout_sig(4,0);
+		   FULL_ADDER4_1: FULLADDER
+			port map (x_fa(4,1), y_fa(4,1), cout_sig(3,1), sum_sig(4,1), cout_sig(4,1));
+          y_fa(4,2) <= sum_sig(3,3);
+          x_fa(4,2) <= cout_sig(4,1);
+		   FULL_ADDER4_2: FULLADDER
+			port map (x_fa(4,2), y_fa(4,2), cout_sig(3,2), sum_sig(4,2), cout_sig(4,2));
+          y_fa(4,3) <= a(4) and x(4);
+          x_fa(4,3) <= cout_sig(4,2);
+		   FULL_ADDER4_3: FULLADDER
+			port map (x_fa(4,3), y_fa(4,3), cout_sig(3,3), sum_sig(4,3), cout_sig(4,3));
 
-        end generate last_row;
-
-        last_row_prod:
-        for I in 0 to BUS_WIDTH-2 generate -- I = 3
-          p_sig(BUS_WIDTH+I) <= sum_sig(BUS_WIDTH-1,I);
-          cout_sig_prod: if I = BUS_WIDTH-2 generate
-             p_sig(2*BUS_WIDTH-1) <= cout_sig(BUS_WIDTH-1,I);
-          end generate cout_sig_prod;
-        end generate last_row_prod;
-
-
+          p_sig(5) <= sum_sig(4,0);
+          p_sig(6) <= sum_sig(4,1);
+          p_sig(7) <= sum_sig(4,2);
+          p_sig(8) <= sum_sig(4,3);
+          p_sig(9) <= cout_sig(4,3);
 
 
 
