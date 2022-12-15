@@ -1,3 +1,4 @@
+--https://ece.engr.uvic.ca/~fayez/courses/ceng465/lab_465/project2/multiplier.pdf
 library  ieee;
 use ieee.numeric_std.all;
 use  ieee.std_logic_1164.all;
