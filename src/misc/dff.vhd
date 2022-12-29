@@ -3,27 +3,23 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
-entity d_flip_flop is
-     port(
-         clk : in STD_LOGIC;
-         din : in STD_LOGIC;
-         reset : in STD_LOGIC;
-         dout : out STD_LOGIC
-         );
-end d_flip_flop;
+entity D_FLIPFLOP_SOURCE is
+Port ( D, CLK, RST : in STD_LOGIC;
+Q, Qb : out STD_LOGIC);
+end D_FLIPFLOP_SOURCE;
 
-architecture d_flip_flop_arc of d_flip_flop is    
+
+
+architecture d_flip_flop_arc of D_FLIPFLOP_SOURCE is    
 begin
-
-    dff : process (din,clk,reset) is
+    dff : process (D,CLK,RST) is
     begin
-        if (reset='1') then
-            dout <= '0';
-        elsif (rising_edge (clk)) then
-            dout <= din;
+        if (RST='1') then
+            Q <= '0';
+        elsif (rising_edge (CLK)) then
+            Q <= D;
+            Qb <= not D;
         end if;
     end process dff;
-
-
 end d_flip_flop_arc;
 

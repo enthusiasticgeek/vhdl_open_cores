@@ -3,10 +3,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity DFF_tb is
+entity dff_testbench is
 end entity;
 
-architecture tb of DFF_tb is
+architecture tb of dff_testbench is
 
 component D_FLIPFLOP_SOURCE is
 Port ( D, CLK, RST : in STD_LOGIC;
